@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Joshua Goltz Portfolio</title>
+<meta name="description" content="Joshua Goltz — Strategic Partnerships & Corporate Development executive. OEM, platform-integration, and licensing deal-maker, now focused on autonomous systems and physical AI." />
+<style>
+  @font-face{font-family:'Roboto Serif';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/roboto-serif-latin-400-normal.woff2') format('woff2')}
+  @font-face{font-family:'Roboto Serif';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/roboto-serif-latin-500-normal.woff2') format('woff2')}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/inter-latin-400-normal.woff2') format('woff2')}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/inter-latin-500-normal.woff2') format('woff2')}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/inter-latin-600-normal.woff2') format('woff2')}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/inter-latin-700-normal.woff2') format('woff2')}
+  :root{
+    --bg:#FFFFFF;
+    --cream:#FBF6EF;
+    --cream-deep:#F6EEE3;
+    --surface:#FAF7F2;
+    --ink:#161513;
+    --ink-2:#403C37;
+    --muted:#6E6A64;
+    --faint:#A49E95;
+    --line:#E9E4DB;
+    --line-2:#DED8CD;
+    --pink:#EC2D7A;
+    --pink-dark:#CF1C66;
+    --pink-wash:#FCE7F0;
+    --display:"Roboto Serif",Georgia,"Times New Roman",serif;
+    --body:"Inter",system-ui,-apple-system,sans-serif;
+    --maxw:1120px;
+    --r:22px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  /* KICKER */
+  .kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-weight:600;font-size:0.76rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--pink)}
+  .kicker::before{content:"";width:22px;height:2px;background:var(--pink);border-radius:2px}
+
+  /* TOP BAR */
+  .topbar{background:var(--ink);color:#fff;text-align:center;font-size:0.82rem;padding:9px 16px;font-weight:500}
+  .topbar a{color:var(--pink);font-weight:600;margin-left:6px}
+  .topbar a:hover{text-decoration:underline}
+
+  /* NAV */
+  nav{position:sticky;top:16px;z-index:60;padding:0 16px;margin-top:16px}
+  .navbar{max-width:var(--maxw);margin:0 auto;background:rgba(255,255,255,0.86);backdrop-filter:blur(14px);border:1px solid var(--line-2);border-radius:100px;padding:12px 14px 12px 24px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 6px 24px rgba(40,30,20,0.06)}
+  .brand{font-family:var(--body);font-weight:700;font-size:1.05rem;letter-spacing:-0.01em;position:relative;padding-bottom:3px}
+  .brand::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2.5px;background:var(--pink);border-radius:2px}
+  .navlinks{display:flex;gap:26px;align-items:center}
+  .navlinks a{font-size:0.86rem;font-weight:500;color:var(--ink-2);transition:color .18s}
+  .navlinks a:hover{color:var(--pink)}
+  .nav-cta{background:var(--ink);color:#fff !important;padding:9px 18px;border-radius:100px;font-size:0.84rem;font-weight:600}
+  .nav-cta:hover{background:var(--pink);color:#fff !important}
+  @media(max-width:780px){.navlinks a:not(.nav-cta){display:none}}
+
+  /* BUTTONS */
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:100px;font-size:0.92rem;font-weight:600;transition:all .18s;border:1.5px solid transparent;font-family:var(--body);cursor:pointer}
+  .btn svg{width:16px;height:16px}
+  .btn-primary{background:var(--pink);color:#fff}
+  .btn-primary:hover{background:var(--pink-dark);transform:translateY(-1px)}
+  .btn-outline{background:transparent;border-color:var(--line-2);color:var(--ink)}
+  .btn-outline:hover{border-color:var(--ink);background:var(--ink);color:#fff}
+
+  /* HERO */
+  header.hero{position:relative;padding:92px 0 96px;background:
+    radial-gradient(ellipse 80% 70% at 78% 8%, var(--cream-deep), transparent 60%),
+    linear-gradient(180deg, var(--cream) 0%, #fff 72%);overflow:hidden}
+  .hero-chip{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line-2);border-radius:100px;padding:7px 16px;margin-bottom:30px;box-shadow:0 2px 10px rgba(40,30,20,0.04)}
+  .hero-chip .dot{width:8px;height:8px;border-radius:50%;background:var(--pink)}
+  .hero-chip span{font-size:0.78rem;font-weight:600;color:var(--ink-2);letter-spacing:0.01em}
+  h1{font-family:var(--display);font-weight:400;font-size:clamp(2.7rem,7vw,5rem);line-height:1.02;letter-spacing:-0.025em;margin-bottom:26px;max-width:17ch}
+  .uline{position:relative;white-space:nowrap}
+  .uline::after{content:"";position:absolute;left:0;bottom:0.06em;width:100%;height:0.1em;background:var(--pink);border-radius:3px}
+  .hero-sub{font-size:clamp(1.05rem,2.2vw,1.28rem);color:var(--muted);max-width:600px;margin-bottom:38px;line-height:1.55}
+  .hero-sub strong{color:var(--ink);font-weight:600}
+  .cta{display:flex;gap:13px;flex-wrap:wrap}
+
+  /* SECTION */
+  section{padding:84px 0;border-top:1px solid var(--line)}
+  section.alt{background:var(--cream)}
+  .sec-head{margin-bottom:48px;max-width:720px}
+  .sec-head .kicker{margin-bottom:20px}
+  .sec-head h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4.6vw,3.2rem);letter-spacing:-0.02em;line-height:1.06}
+  .sec-head p{color:var(--muted);margin-top:16px;font-size:1.06rem;max-width:620px}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:start}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:40px}}
+  .about-body .kicker{margin-bottom:22px}
+  .about-body p{color:var(--ink-2);margin-bottom:20px;font-size:1.12rem;line-height:1.6}
+  .about-body p:first-of-type{font-size:1.2rem}
+  .about-body strong{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px 22px}
+  .stat .num{font-family:var(--display);font-weight:500;font-size:2.4rem;color:var(--pink);letter-spacing:-0.03em;line-height:1}
+  .stat .lbl{font-size:0.86rem;color:var(--muted);margin-top:10px;line-height:1.35}
+
+  /* DEAL CARDS */
+  .deals{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:780px){.deals{grid-template-columns:1fr}}
+  .deal{background:#fff;border:1px solid var(--line-2);border-radius:var(--r);padding:30px 28px;transition:transform .2s,box-shadow .2s;position:relative}
+  .deal:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(40,30,20,0.09)}
+  .deal-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:4px}
+  .deal h3{font-family:var(--display);font-weight:500;font-size:1.5rem;letter-spacing:-0.01em}
+  .deal .yr{font-size:0.78rem;color:var(--faint);white-space:nowrap;font-weight:600}
+  .deal .role{font-size:0.86rem;color:var(--pink);font-weight:600;margin-bottom:16px}
+  .deal p{font-size:0.96rem;color:var(--muted);margin-bottom:18px}
+  .deal ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+  .deal li{font-size:0.92rem;color:var(--ink-2);padding-left:22px;position:relative;line-height:1.5}
+  .deal li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--pink)}
+  .deal li b{color:var(--ink);font-weight:600}
+
+  /* COMPETENCIES */
+  .comp{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  @media(max-width:700px){.comp{grid-template-columns:1fr}}
+  .comp-row{background:#fff;border:1px solid var(--line-2);border-radius:18px;padding:26px 26px}
+  .comp-row .label{font-family:var(--body);font-size:0.82rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--pink);font-weight:700;margin-bottom:12px}
+  .comp-row .items{font-size:0.96rem;color:var(--ink-2);line-height:1.6}
+  .comp-row .items b{color:var(--ink);font-weight:600}
+
+  /* WHY */
+  .why{background:#fff;border:1px solid var(--line-2);border-radius:var(--r);padding:48px;position:relative;overflow:hidden}
+  @media(max-width:700px){.why{padding:30px 24px}}
+  .why::before{content:"";position:absolute;top:0;left:0;width:5px;height:100%;background:var(--pink)}
+  .why .lead{font-family:var(--display);font-size:clamp(1.4rem,2.7vw,1.8rem);color:var(--ink);font-weight:400;line-height:1.28;margin-bottom:26px;letter-spacing:-0.02em;max-width:800px}
+  .why p{color:var(--muted);font-size:1.08rem;margin-bottom:20px;line-height:1.6}
+  .why p:last-child{margin-bottom:0}
+  .why strong{color:var(--ink);font-weight:600}
+
+  /* GARAGE */
+  .garage-intro{color:var(--ink-2);font-size:1.12rem;max-width:700px;margin-bottom:40px;line-height:1.6}
+  .garage-intro b{color:var(--ink);font-weight:600}
+  .garage{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:780px){.garage{grid-template-columns:1fr}}
+  .garage-feature{width:100%;height:clamp(260px,48vw,540px);object-fit:cover;object-position:center 54%;border-radius:var(--r);border:1px solid var(--line-2);display:block}
+  .garage-cap{text-align:center;color:var(--faint);font-size:0.84rem;font-weight:500;margin:14px 0 40px}
+  .munich{margin:0 0 48px}
+  .munich .kicker{margin-bottom:16px}
+  .munich-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:640px){.munich-grid{grid-template-columns:1fr}}
+  .munich figure{margin:0}
+  .munich img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:16px;border:1px solid var(--line-2);display:block}
+  .munich figcaption{font-size:0.86rem;color:var(--muted);margin-top:9px;font-weight:500}
+  .g-card{background:#fff;border:1px solid var(--line-2);border-radius:var(--r);padding:0;overflow:hidden;transition:transform .2s,box-shadow .2s}
+  .g-card img{width:100%;height:200px;object-fit:cover;display:block}
+  .g-body{padding:24px 26px 28px}
+  .g-card:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(40,30,20,0.09)}
+  .g-card .kick{font-family:var(--body);font-size:0.74rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--pink);font-weight:700;margin-bottom:16px}
+  .g-card .gt{font-family:var(--display);font-weight:500;font-size:1.25rem;margin-bottom:12px;letter-spacing:-0.02em;line-height:1.1}
+  .g-card p{font-size:0.95rem;color:var(--muted);line-height:1.55}
+  .g-card p b{color:var(--ink);font-weight:600}
+  .garage-close{margin-top:36px;font-family:var(--display);font-size:clamp(1.35rem,2.7vw,1.8rem);color:var(--ink);font-weight:400;line-height:1.3;max-width:860px;letter-spacing:-0.02em}
+  .garage-close span{color:var(--pink)}
+
+  /* TIMELINE */
+  .timeline{display:flex;flex-direction:column}
+  .tl-item{display:grid;grid-template-columns:210px 1fr;gap:30px;padding:24px 0;border-bottom:1px solid var(--line)}
+  @media(max-width:640px){.tl-item{grid-template-columns:1fr;gap:5px;padding:18px 0}}
+  .tl-item:last-child{border-bottom:none}
+  .tl-when{font-size:0.82rem;color:var(--faint);font-weight:600;padding-top:3px}
+  .tl-what .r{font-family:var(--display);font-weight:500;font-size:1.08rem}
+  .tl-what .c{color:var(--pink);font-size:0.92rem;font-weight:600}
+  .tl-what .d{color:var(--muted);font-size:0.92rem;margin-top:4px}
+
+  /* EDUCATION */
+  .edu{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:640px){.edu{grid-template-columns:1fr}}
+  .edu-card{background:#fff;border:1px solid var(--line-2);border-radius:18px;padding:28px}
+  .edu-card .deg{font-family:var(--display);font-weight:500;font-size:1.15rem;margin-bottom:5px;letter-spacing:-0.01em}
+  .edu-card .sch{color:var(--pink);font-size:0.9rem;font-weight:600;margin-bottom:12px}
+  .edu-card .meta{color:var(--muted);font-size:0.88rem}
+
+  /* CONTACT */
+  .contact{text-align:center;padding:104px 0;background:
+    radial-gradient(ellipse 70% 80% at 50% 0%, var(--cream-deep), transparent 62%),var(--cream)}
+  .contact h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,5.2vw,3.6rem);letter-spacing:-0.025em;margin-bottom:18px;line-height:1.02}
+  .contact p{color:var(--muted);max-width:500px;margin:0 auto 24px;font-size:1.1rem}
+  .contact-loc{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line-2);border-radius:100px;padding:10px 20px;margin-bottom:34px;font-size:0.92rem;font-weight:500;color:var(--ink-2)}
+  .contact-loc svg{width:16px;height:16px;color:var(--pink);flex:none}
+  .contact .kicker{margin-bottom:22px}
+  .contact-links{display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
+
+  footer{padding:36px 0;text-align:center;border-top:1px solid var(--line)}
+  footer p{color:var(--faint);font-size:0.84rem;font-weight:500}
+</style>
+</head>
+<body>
+
+<div class="topbar">Open to Director / VP — Strategic Partnerships <a href="#contact">Get in touch →</a></div>
+
+<nav>
+  <div class="navbar">
+    <div class="brand">Joshua Goltz</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#track-record">Track Record</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#why">Why Autonomy</a>
+      <a href="#garage">Garage</a>
+      <a class="nav-cta" href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-chip"><span class="dot"></span><span>Strategic Partnerships · OEM · Corporate Development</span></div>
+    <h1>Structuring the deals that bring new technology to market.</h1>
+    <p class="hero-sub">15+ years in <strong>strategic partnerships, corporate development, and OEM-integration deal-making</strong> — building partner ecosystems from zero, negotiating first-of-their-kind technical agreements, and scaling platforms through acquisition. Now focused on autonomous systems and physical AI.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#track-record">
+        View track record
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-outline" href="Joshua-Goltz-Resume.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+        Download résumé
+      </a>
+      <a class="btn btn-outline" href="https://linkedin.com/in/joshuagoltz/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-body">
+        <span class="kicker">Profile</span>
+        <p>I build and close the partnerships that turn ambitious technology into shipped, revenue-generating products. As <strong>cofounder &amp; COO of Pulselocker</strong>, I grew a partner ecosystem from <strong>0 to 250+</strong>, negotiated the OEM and ISV integrations with Pioneer DJ (now AlphaTheta), Serato and Virtual DJ that embedded our service into their DJ hardware and software, structured the revenue-share economics behind them, scaled from three markets to every EEA country, each with its own licensing regime, and led the company through its <strong>acquisition by Beatport</strong>.</p>
+        <p>Since then I've closed <strong>$8M+ in commercial contracts in five months</strong> across multiple jurisdictions at Utopia Music — negotiating with suppliers, OEMs and content owners — and advised AI and technology startups on partnership strategy and go-to-market. My foundation is commercial: sourcing, structuring, negotiating and owning complex multi-party agreements, then holding the cross-functional execution that makes them real.</p>
+        <p>I pair that with the <strong>technical fluency to scope integrations with engineering</strong>, the modeling rigor to present to boards and executives, and an IP-law grounding that makes me fast and precise on contractual and licensing structure.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num">15+</div><div class="lbl">Years in partnerships &amp; corporate development</div></div>
+        <div class="stat"><div class="num">250+</div><div class="lbl">Partners signed &amp; integrated from zero</div></div>
+        <div class="stat"><div class="num">$8M+</div><div class="lbl">Commercial contracts closed in 5 months</div></div>
+        <div class="stat"><div class="num">1</div><div class="lbl">Startup exit as cofounder &amp; COO</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="track-record" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Selected Track Record</span>
+      <h2>Deals, ecosystems, and exits.</h2>
+      <p>A commercial career built on bringing new technology to market through partners — structuring the agreement, then owning the relationship.</p>
+    </div>
+    <div class="deals">
+
+      <div class="deal">
+        <div class="deal-top"><h3>Pulselocker</h3><span class="yr">2011 – 2018</span></div>
+        <div class="role">Cofounder &amp; Chief Operations Officer · Acquired by Beatport</div>
+        <p>Built a subscription streaming platform and the entire partner ecosystem beneath it — from first deal to acquisition.</p>
+        <ul>
+          <li>Negotiated and activated <b>OEM &amp; embedded integrations</b> with Pioneer DJ (now AlphaTheta), Serato and Virtual DJ, built into their DJ hardware and software — structuring the API/SDK affiliate and revenue-share economics.</li>
+          <li>Grew content &amp; technology partners from <b>0 to 50+ in under a year</b>, 250+ within two.</li>
+          <li>Closed landmark agreements with <b>UMG, Warner, Sony and Merlin</b>; scaled licensing and fulfillment across the US, Canada, UK and full EEA.</li>
+          <li>Led Series A and the <b>acquisition by Beatport</b>; owned strategy, P&amp;L, KPIs and board reporting.</li>
+        </ul>
+      </div>
+
+      <div class="deal">
+        <div class="deal-top"><h3>Utopia Music</h3><span class="yr">2022 – 2023</span></div>
+        <div class="role">Senior Business &amp; Legal Affairs Director</div>
+        <p>Brought in to accelerate commercial dealflow during a period of aggressive global expansion.</p>
+        <ul>
+          <li>Closed <b>$8M+ in commercial, content and technology agreements in five months</b>, negotiating with suppliers, <b>OEMs</b> and content owners across jurisdictions.</li>
+          <li>Architected a SaaS program for the Accelerate royalty platform enabling scalable partner onboarding.</li>
+          <li>Built a data-governance and risk framework for faster, lower-risk partner integrations.</li>
+        </ul>
+      </div>
+
+      <div class="deal">
+        <div class="deal-top"><h3>JJG Consulting</h3><span class="yr">2018 – Present</span></div>
+        <div class="role">Partnerships &amp; Business Development Advisor</div>
+        <p>Advising AI and technology companies on partnership structuring and go-to-market.</p>
+        <ul>
+          <li>Drove GTM and partnership frameworks for clients whose products are now embedded in workflows at <b>Apple, Meta, Hulu and Vice</b>.</li>
+          <li>Guided a client to win <b>Sony Music's Demixing Challenge</b> — navigating IP licensing and competitive positioning.</li>
+          <li>Board &amp; strategic advisor across generative-AI and music-tech startups.</li>
+        </ul>
+      </div>
+
+      <div class="deal">
+        <div class="deal-top"><h3>INgrooves · Apple</h3><span class="yr">2008 – 2011</span></div>
+        <div class="role">Business Affairs / Licensing · SMB Sales Lead</div>
+        <p>Early grounding in distribution deals, licensing structure and enterprise sales.</p>
+        <ul>
+          <li>Negotiated and closed <b>distribution &amp; licensing agreements</b> with major digital platforms; managed contract lifecycles and copyright compliance.</li>
+          <li>At Apple, ranked <b>#1 seller</b> in the O2O program (Q2 2009) across complex multi-stakeholder B2B cycles.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="capabilities">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Capabilities</span>
+      <h2>What I bring to an OEM &amp; partnerships org.</h2>
+    </div>
+    <div class="comp">
+      <div class="comp-row">
+        <div class="label">OEM &amp; Integration</div>
+        <div class="items"><b>OEM &amp; ISV partnerships</b> · embedding technology in partner products · API &amp; SDK partner economics · technical scoping with engineering</div>
+      </div>
+      <div class="comp-row">
+        <div class="label">Deal Structuring</div>
+        <div class="items"><b>Aligned incentives &amp; balanced terms</b> · revenue-share &amp; commercial models · complex multi-party agreements · source → structure → close</div>
+      </div>
+      <div class="comp-row">
+        <div class="label">Economics</div>
+        <div class="items"><b>Financial modeling &amp; forecasting</b> · technical, contractual &amp; financial issue analysis · P&amp;L ownership</div>
+      </div>
+      <div class="comp-row">
+        <div class="label">Market Expansion</div>
+        <div class="items"><b>Multi-jurisdiction rollout</b> · regulatory &amp; licensing compliance · bringing new products to market through partners</div>
+      </div>
+      <div class="comp-row">
+        <div class="label">Corporate Dev</div>
+        <div class="items"><b>Series A → acquisition</b> · partnership &amp; portfolio strategy · board &amp; executive reporting</div>
+      </div>
+      <div class="comp-row">
+        <div class="label">Leadership</div>
+        <div class="items"><b>Product, Engineering, Finance &amp; Legal alignment</b> · IP &amp; licensing fluency (NYU) · fast-moving, ambiguous settings</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Why Autonomy, Why Waabi</span>
+      <h2>Betting on physical AI.</h2>
+    </div>
+    <div class="why">
+      <p class="lead">The hardest part of commercializing autonomous technology isn't only the AI — it's structuring the OEM and strategic partnerships that put it into real fleets and vehicles. That's the work I'm built for.</p>
+      <p>My career has been a repeated pattern: take a genuinely new technology, and build the partnership architecture that gets it adopted — OEM integrations, revenue-share economics, first-of-their-kind agreements, and the cross-functional execution to launch them. The domain has been music and media; <strong>the muscle is partnership and deal-making, and it transfers directly to automotive and autonomy.</strong></p>
+      <p>And I'm not arriving at automotive cold. <strong>I grew up in Pittsburgh, where much of the self-driving industry got its start</strong>, and I'm a lifelong car enthusiast who wrenches on my own build, obsesses over drivetrain engineering, and drives regularly at rally events <em style="color:var(--pink);font-style:normal">(more below)</em>. I'm clear-eyed that automotive OEM relationships have their own depth, and I'd come in to learn the sector fast while contributing immediately on what travels: <strong>negotiation, incentive design, commercial modeling, and the discipline of being the trusted business interface in high-stakes, ambiguous moments.</strong> Waabi's approach to Physical AI is exactly the kind of category-defining technology I want to help bring to market.</p>
+    </div>
+  </div>
+</section>
+
+<section id="garage">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Off the Clock</span>
+      <h2>I think about how vehicles work — for fun.</h2>
+    </div>
+    <p class="garage-intro">The automotive pull isn't a career convenience; it's a genuine obsession. I spend my free time <b>tuning, wrenching, and driving</b> — and reading far too much about drivetrain engineering. For a company putting autonomy onto real vehicles, that enthusiasm is the part of the job I'd never have to fake.</p>
+    <img class="garage-feature" src="images/e92-front.jpg" alt="Joshua's 2008 BMW E92 335i, San Francisco" />
+    <p class="garage-cap">2008 BMW E92 335i · N54 · 6-speed manual · still mine, 18 years on</p>
+    <div class="munich">
+      <span class="kicker">Munich · April 2008</span>
+      <div class="munich-grid">
+        <figure><img src="images/e92-munich-handover.jpg" alt="Collecting the car at BMW Welt in Munich" /><figcaption>Collection day at BMW Welt</figcaption></figure>
+        <figure><img src="images/e92-munich-odometer.jpg" alt="Odometer reading zero miles" /><figcaption>Mile zero</figcaption></figure>
+        <figure><img src="images/e92-munich-alps.jpg" alt="Driving through the snowy Alps" /><figcaption>First road trip, through the Alps</figcaption></figure>
+      </div>
+    </div>
+    <div class="garage">
+      <div class="g-card">
+        <img src="images/e92-engine.jpg" alt="N54 twin-turbo engine bay of the BMW 335i" />
+        <div class="g-body">
+          <div class="kick">The Build</div>
+          <div class="gt">Specced to order, wrenched by hand</div>
+          <p>I specced this car to order and collected it in Munich through <b>BMW's European Delivery program</b> in 2008 — and have done my own <b>tuning and mechanical work</b> on the N54 twin-turbo ever since. I know it from the inside out.</p>
+        </div>
+      </div>
+      <div class="g-card">
+        <img src="images/e92-shifter.jpg" alt="Six-speed manual gear selector" style="object-position:center 6%" />
+        <div class="g-body">
+          <div class="kick">The Discipline</div>
+          <div class="gt">Three pedals, by choice</div>
+          <p>A <b>6-speed manual</b> I drive for the connection to the machine — a <b>regular at rally driving events</b> and California canyon runs, from the backroads of Mendocino County on. Vehicle dynamics I feel, not just read.</p>
+        </div>
+      </div>
+      <div class="g-card">
+        <img src="images/e92-rear.jpg" alt="Rear three-quarter view of the BMW 335i" />
+        <div class="g-body">
+          <div class="kick">The Obsession</div>
+          <div class="gt">Drivetrain &amp; differential tech</div>
+          <p>A deep, ongoing fascination with <b>LSD and differential engineering</b> across performance vehicles — how torque actually reaches the road. The kind of curiosity that makes complex hardware partnerships click.</p>
+        </div>
+      </div>
+    </div>
+    <p class="garage-close">Bringing autonomy to the road is, to me, the single most interesting partnership problem in technology right now — <span>where everything I do professionally meets everything I care about personally.</span></p>
+  </div>
+</section>
+
+<section id="experience" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Experience</span>
+      <h2>Career at a glance.</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-when">May 2018 – Present</div>
+        <div class="tl-what"><div class="r">Partnerships &amp; BD Advisor</div><div class="c">JJG Consulting</div><div class="d">AI &amp; technology partnership strategy, structuring and go-to-market.</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">Jul 2022 – Jan 2023</div>
+        <div class="tl-what"><div class="r">Senior Business &amp; Legal Affairs Director</div><div class="c">Utopia Music AG</div><div class="d">$8M+ in agreements in 5 months across suppliers, OEMs and content owners.</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">Jan 2011 – Apr 2018</div>
+        <div class="tl-what"><div class="r">Cofounder &amp; Chief Operations Officer</div><div class="c">Pulselocker (→ Beatport)</div><div class="d">Built 250+ partner ecosystem &amp; OEM integrations; led Series A and acquisition.</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">2009 – 2011</div>
+        <div class="tl-what"><div class="r">Business Affairs / Licensing Manager</div><div class="c">INgrooves Music Group</div><div class="d">Distribution &amp; licensing deals with major digital platforms.</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">Jun 2008 – Jul 2009</div>
+        <div class="tl-what"><div class="r">SMB Sales Lead</div><div class="c">Apple Inc.</div><div class="d">#1 seller, O2O program, Q2 2009; complex B2B sales cycles.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Education</span>
+      <h2>Commercial &amp; legal foundation.</h2>
+    </div>
+    <div class="edu">
+      <div class="edu-card">
+        <div class="deg">Certificate — Intellectual Property Law</div>
+        <div class="sch">NYU School of Professional Studies</div>
+        <div class="meta">GPA 4.0 · Licensing · Negotiations/ADR · Trademarks, Copyrights &amp; Patents · Trade Secrets</div>
+      </div>
+      <div class="edu-card">
+        <div class="deg">B.S. Business Administration</div>
+        <div class="sch">Duquesne University</div>
+        <div class="meta">Technology Marketing · Legal Studies · Phi Eta Sigma Honors · Dean's List</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="kicker" style="justify-content:center">Let's talk</span>
+    <h2>Building the partnership engine for what's next.</h2>
+    <p>Open to Director and VP roles in strategic partnerships, OEM and corporate development — in autonomy, AI and frontier technology.</p>
+    <div class="contact-loc">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      Based in Dogpatch — a short walk from Waabi's Indiana St office, so I'm in-office ready from day one.
+    </div>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:joshgoltz@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        Email
+      </a>
+      <a class="btn btn-outline" href="https://linkedin.com/in/joshuagoltz/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-outline" href="Joshua-Goltz-Resume.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+        Résumé
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><p>Joshua Goltz · San Francisco, CA · Strategic Partnerships &amp; Corporate Development</p></div>
+</footer>
+
+</body>
+</html>
